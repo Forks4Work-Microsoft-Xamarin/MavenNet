@@ -100,5 +100,18 @@ namespace MavenNet.Tests
 
 			Assert.True(project.Dependencies?.Any());
 		}
-	}
+
+        [Fact]
+        public async Task Test_GroupIds_Project_MAVENCENTRAL_1()
+        {
+            var repo = MavenRepository.FromMavenCentral();
+            await repo.Refresh("com.google.accompanist");
+
+            var project = await repo.GetProjectAsync("com.google.accompanist", "accompanist-appcompat-theme", "0.30.1");
+
+            Assert.True(project != null);
+
+            Assert.True(project.Dependencies?.Any());
+        }
+    }
 }
