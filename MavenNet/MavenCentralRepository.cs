@@ -27,7 +27,6 @@ namespace MavenNet
 
             var url = $"http://search.maven.org/solrsearch/select?q=g:%22{groupId}%22&rows=100&wt=json";
 
-            http.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36");
             var data = await http.GetStringAsync(url);
 
             var json = JObject.Parse(data);
